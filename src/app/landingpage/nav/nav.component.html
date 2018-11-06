@@ -1,0 +1,38 @@
+<div class="header-right">
+  <label for="open">
+    <span class="hidden-desktop"></span>
+  </label>
+  <input type="checkbox" name="" id="open">
+  <nav>
+    <!-- <ng-template ngFor let-item [ngForOf]="inputData"> -->
+    <div class="dropdown" *ngFor="let item of inputData">
+      <a class="dropbtn" [routerLink]="item.url">{{item.name}}</a>
+      <div class="dropdown-content" *ngIf="item.ddList">
+        <aside class="menu" fxHide.sm fxHide.xs>
+          <div fxLayout="row wrap" fxLayoutAlign="center center">
+            <div>
+              <h1>{{item.name}}</h1>
+            </div>
+            <hr />
+          </div>
+          <div fxLayout="row wrap" fxLayoutAlign="start start">
+            <div fxLayout="column" fxLayoutAlign="start start" fxFlex="25" *ngFor="let list of item.ddList">
+              <a style="color: #df8c3b">{{list.title}}</a>
+              <ul fxLayout="column" fxLayoutAlign="space-between start">
+                <li *ngFor="let minilist of list.list"> <a [routerLink]="minilist.routerLink">{{minilist.name}}</a></li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start start">
+      <li class="list-item book-an-appointment">
+        <a routerLink="#">REGISTER</a>
+      </li>
+    </div>
+    <!-- </ng-template> -->
+  </nav>
+
+</div>
+<!--  -->
